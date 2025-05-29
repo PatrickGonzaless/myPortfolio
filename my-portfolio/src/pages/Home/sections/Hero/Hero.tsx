@@ -14,12 +14,19 @@ const Hero = () => {
         height: "100vh",
         display: "flex",
         alignItems: "center",
+
         [theme.breakpoints.up("xs")]: { // <= mobile
+            display: "block",
+            padding: "20px",
             paddingTop: "100px",
+            paddingBottom: "40px",
         },
 
-         [theme.breakpoints.up("md")]: { // >=mobile
-            paddingTop: "0",
+        [theme.breakpoints.up("md")]: { // >=mobile
+            display: "flex",
+            alignItems: "center",
+            paddingTop: "100px",
+            height: "100vh"
         }
 
     }))
@@ -29,6 +36,26 @@ const Hero = () => {
         borderRadius: "50%",
         border: `1px solid ${theme.palette.primary.contrastText}`,
     }))
+
+ const handleEmail = () => {
+  const emailAddress = 'patrickgonzales031@gmail.com';
+  const subject = 'Email from Portfolio';
+  const body = 'Hello! I saw your portfolio... || Olá Patrick, vi seu portfólio...';
+
+  const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailtoLink; 
+};
+
+
+    const handleDownload = () => {
+        console.log("download")
+        const link = document.createElement('a');
+        link.href = '/cv-patrick-gonzales.pdf'
+        link.download = 'CV - Patrick Gonzales.pdf'; 
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 
     return (
         <>
@@ -54,7 +81,7 @@ const Hero = () => {
                             <Grid container display="flex" justifyContent="center" spacing={3} pt={3}>
 
                                 <Grid size={{ xs: 12, md: 4 }} display="flex" justifyContent="center" >
-                                    <StyledButton>
+                                    <StyledButton onClick={() => handleDownload()}>
                                         <DownloadIcon />
                                         <Typography>DOWNLOAD CV'S</Typography>
 
@@ -62,7 +89,7 @@ const Hero = () => {
                                 </Grid>
 
                                 <Grid size={{ xs: 12, md: 4 }} display="flex" justifyContent="center" >
-                                    <StyledButton>
+                                    <StyledButton onClick={() => handleEmail()}>
                                         <EmailIcon />
                                         <Typography>CONTACT ME</Typography>
                                     </StyledButton>
