@@ -1,10 +1,11 @@
 import { styled } from '@mui/system';
 
 interface StyledButtonProps {
-    children: React.ReactNode;
+    children: React.ReactNode
+    onClick: () => void;
 }
 
-const StyledButton:React.FC<StyledButtonProps> = ({ children }) => {
+const StyledButton:React.FC<StyledButtonProps> = ({ children, onClick }) => {
 
 
     const StyledButton = styled("button")(({ theme }) => ({
@@ -27,7 +28,7 @@ const StyledButton:React.FC<StyledButtonProps> = ({ children }) => {
 
     return (
         <>
-            <StyledButton>{children}</StyledButton>
+            <StyledButton onClick={onClick}>{children}</StyledButton>
         </>
     )
 }
