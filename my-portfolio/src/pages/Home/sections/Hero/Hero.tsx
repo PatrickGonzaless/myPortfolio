@@ -83,7 +83,7 @@ const Hero = () => {
                                 <Grid size={{ xs: 12, md: 4 }} display="flex" justifyContent="center" >
                                     <StyledButton onClick={() => handleDownload()}>
                                         <DownloadIcon />
-                                        <Typography>DOWNLOAD CV'S</Typography>
+                                        <Typography>DOWNLOAD CV</Typography>
 
                                     </StyledButton>
                                 </Grid>
